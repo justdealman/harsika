@@ -1,0 +1,543 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>PhoneArtist</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<link href="./css/style.css" rel="stylesheet" type="text/css" title="compact">
+	<script type="text/javascript" src="./js/jquery.js"></script>
+	<script type="text/javascript" src="./js/croppic.js"></script>
+	<script type="text/javascript" src="./js/easing.js"></script>
+	<script type="text/javascript" src="./js/jscrollpane.js"></script>
+	<script type="text/javascript" src="./js/mousewheel.js"></script>
+	<script type="text/javascript" src="./js/selectbox.js"></script>
+	<script type="text/javascript" src="./js/slides.js"></script>
+	<script type="text/javascript" src="./js/dynamic.js"></script>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="header">
+			<div>
+				<img src="./img/logo.png" width="170" height="40" class="logo" alt="">
+				<p class="slogan">Печать ваших фото на чехол для мобильников и планшетов</p>
+				<div class="phone">
+					<h3>8 800 564 4654</h3>
+					<p>Доставка по всей России</p>
+				</div>
+			</div>
+		</div>
+		<div class="intro">
+			<div>
+				<h1>Эксклюзивный чехол<br> с Вашими фотографиями</h1>
+				<p>Придумываете собственный дизайн и получаете чехол для гаджета с безупречным качеством изображения и неповторимого по исполнению.</p>
+				<button class="openmodal">Создать свой чехол</button>
+			</div>
+			<img src="./img/hand.png" width="334" height="462" alt="">
+		</div>
+		<div class="steps">
+			<div>
+				<h2>Ваш уникальный чехол всего за <strong>3</strong> шага</h2>
+				<ul>
+					<li>
+						<p>Загрузить фото в наш<br> редактор</p>
+						<img src="./img/step1_icon.png" width="106" height="56" alt="">
+					</li>
+					<li>
+						<p>Оплатить заказ прямо на сайте или при получении на точке</p>
+						<img src="./img/step2_icon.png" width="112" height="58" alt="">
+					</li>
+					<li>
+						<p>Получить по почте или забрать самостоятельно</p>
+						<img src="./img/step3_icon.png" width="102" height="56" alt="">
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="main">
+			<h2>Мы делаем чехлы для гаджетов</h2>
+			<a href="#" class="prev"></a>
+			<a href="#" class="next"></a>
+			<div class="scroll">
+				<div>
+					<ul>
+						<li>
+							<div id="1" alt="galaxy3">
+								<div class="cover">
+									<img src="./pic/samsungs3_main.png" width="139" height="264" alt="">
+								</div>
+								<p>Samsung S3</p>
+								<div class="description">
+									<h3><span>Модель:</span> Samsung S3</h3>
+									<p>Ширина - 2244 mm.</p>
+									<p>Длина - 2941 mm.</p>
+									<p>Глубина - 9 mm.</p>
+									<h5>Материалы</h5>
+									<p>- Силикон</p>
+									<p>- Пластик</p>
+									<p>- Кожа</p>
+									<button>Создать чехол</button>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div id="2" alt="galaxy4">
+								<div class="cover">
+									<img src="./pic/samsungs4_main.png" width="140" height="265" alt="">
+								</div>
+								<p>Samsuns S4</p>
+								<div class="description">
+									<h3><span>Модель:</span> Samsung S4</h3>
+									<p>Ширина - 2244 mm.</p>
+									<p>Длина - 2941 mm.</p>
+									<p>Глубина - 9 mm.</p>
+									<h5>Материалы</h5>
+									<p>- Силикон</p>
+									<p>- Пластик</p>
+									<p>- Кожа</p>
+									<button>Создать чехол</button>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div id="3" alt="iphone4">
+								<div class="cover">
+									<img src="./pic/iphone4_main.png" width="126" height="249" alt="">
+								</div>
+								<p>iPhone 4s</p>
+								<div class="description">
+									<h3><span>Модель:</span> iPhone 4s</h3>
+									<p>Ширина - 2244 mm.</p>
+									<p>Длина - 2941 mm.</p>
+									<p>Глубина - 9 mm.</p>
+									<h5>Материалы</h5>
+									<p>- Силикон</p>
+									<p>- Пластик</p>
+									<p>- Кожа</p>
+									<button>Создать чехол</button>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div id="4" alt="iphone5">
+								<div class="cover">
+									<img src="./pic/iphone5_main.png" width="127" height="268" alt="">
+								</div>
+								<p>iPhone 5</p>
+								<div class="description">
+									<h3><span>Модель:</span> iPhone 5</h3>
+									<p>Ширина - 2244 mm.</p>
+									<p>Длина - 2941 mm.</p>
+									<p>Глубина - 9 mm.</p>
+									<h5>Материалы</h5>
+									<p>- Силикон</p>
+									<p>- Пластик</p>
+									<p>- Кожа</p>
+									<button>Создать чехол</button>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div id="5" alt="iphone5">
+								<div class="cover">
+									<img src="./pic/iphone5s_main.png" width="125" height="266" alt="">
+								</div>
+								<p>iPhone 5s</p>
+								<div class="description">
+									<h3><span>Модель:</span> iPhone 5s</h3>
+									<p>Ширина - 2244 mm.</p>
+									<p>Длина - 2941 mm.</p>
+									<p>Глубина - 9 mm.</p>
+									<h5>Материалы</h5>
+									<p>- Силикон</p>
+									<p>- Пластик</p>
+									<p>- Кожа</p>
+									<button>Создать чехол</button>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div id="6" alt="ipad">
+								<div class="cover">
+									<img src="./pic/ipad_main.png" width="208" height="309" alt="">
+								</div>
+								<p>iPad 2,3,4</p>
+								<div class="description">
+									<h3><span>Модель:</span> iPad 2,3,4</h3>
+									<p>Ширина - 2244 mm.</p>
+									<p>Длина - 2941 mm.</p>
+									<p>Глубина - 9 mm.</p>
+									<h5>Материалы</h5>
+									<p>- Силикон</p>
+									<p>- Пластик</p>
+									<p>- Кожа</p>
+									<button>Создать чехол</button>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div id="7" alt="ipadmini">
+								<div class="cover">
+									<img src="./pic/ipadmini_main.png" width="192" height="285" alt="">
+								</div>
+								<p>iPad mini</p>
+								<div class="description">
+									<h3><span>Модель:</span> iPad mini</h3>
+									<p>Ширина - 2244 mm.</p>
+									<p>Длина - 2941 mm.</p>
+									<p>Глубина - 9 mm.</p>
+									<h5>Материалы</h5>
+									<p>- Силикон</p>
+									<p>- Пластик</p>
+									<p>- Кожа</p>
+									<button>Создать чехол</button>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div id="8" alt="galaxy3">
+								<div class="cover">
+									<img src="./pic/samsungs3_main.png" width="139" height="264" alt="">
+								</div>
+								<p>Samsung S3</p>
+								<div class="description">
+									<h3><span>Модель:</span> Samsung S3</h3>
+									<p>Ширина - 2244 mm.</p>
+									<p>Длина - 2941 mm.</p>
+									<p>Глубина - 9 mm.</p>
+									<h5>Материалы</h5>
+									<p>- Силикон</p>
+									<p>- Пластик</p>
+									<p>- Кожа</p>
+									<button>Создать чехол</button>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div id="9" alt="galaxy4">
+								<div class="cover">
+									<img src="./pic/samsungs4_main.png" width="140" height="265" alt="">
+								</div>
+								<p>Samsuns S4</p>
+								<div class="description">
+									<h3><span>Модель:</span> Samsung S4</h3>
+									<p>Ширина - 2244 mm.</p>
+									<p>Длина - 2941 mm.</p>
+									<p>Глубина - 9 mm.</p>
+									<h5>Материалы</h5>
+									<p>- Силикон</p>
+									<p>- Пластик</p>
+									<p>- Кожа</p>
+									<button>Создать чехол</button>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div id="10" alt="iphone4">
+								<div class="cover">
+									<img src="./pic/iphone4_main.png" width="126" height="249" alt="">
+								</div>
+								<p>iPhone 4s</p>
+								<div class="description">
+									<h3><span>Модель:</span> iPhone 4</h3>
+									<p>Ширина - 2244 mm.</p>
+									<p>Длина - 2941 mm.</p>
+									<p>Глубина - 9 mm.</p>
+									<h5>Материалы</h5>
+									<p>- Силикон</p>
+									<p>- Пластик</p>
+									<p>- Кожа</p>
+									<button>Создать чехол</button>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div id="11" alt="iphone5">
+								<div class="cover">
+									<img src="./pic/iphone5_main.png" width="127" height="268" alt="">
+								</div>
+								<p>iPhone 5</p>
+								<div class="description">
+									<h3><span>Модель:</span> iPhone 5</h3>
+									<p>Ширина - 2244 mm.</p>
+									<p>Длина - 2941 mm.</p>
+									<p>Глубина - 9 mm.</p>
+									<h5>Материалы</h5>
+									<p>- Силикон</p>
+									<p>- Пластик</p>
+									<p>- Кожа</p>
+									<button>Создать чехол</button>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div id="12" alt="iphone5">
+								<div class="cover">
+									<img src="./pic/iphone5s_main.png" width="125" height="266" alt="">
+								</div>
+								<p>iPhone 5s</p>
+								<div class="description">
+									<h3><span>Модель:</span> iPhone 5s</h3>
+									<p>Ширина - 2244 mm.</p>
+									<p>Длина - 2941 mm.</p>
+									<p>Глубина - 9 mm.</p>
+									<h5>Материалы</h5>
+									<p>- Силикон</p>
+									<p>- Пластик</p>
+									<p>- Кожа</p>
+									<button>Создать чехол</button>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div id="13" alt="ipad">
+								<div class="cover">
+									<img src="./pic/ipad_main.png" width="208" height="309" alt="">
+								</div>
+								<p>iPad 2,3,4</p>
+								<div class="description">
+									<h3><span>Модель:</span> iPad 2,3,4</h3>
+									<p>Ширина - 2244 mm.</p>
+									<p>Длина - 2941 mm.</p>
+									<p>Глубина - 9 mm.</p>
+									<h5>Материалы</h5>
+									<p>- Силикон</p>
+									<p>- Пластик</p>
+									<p>- Кожа</p>
+									<button>Создать чехол</button>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div id="14" alt="ipadmini">
+								<div class="cover">
+									<img src="./pic/ipadmini_main.png" width="192" height="285" alt="">
+								</div>
+								<p>iPad mini</p>
+								<div class="description">
+									<h3><span>Модель:</span> iPad mini</h3>
+									<p>Ширина - 2244 mm.</p>
+									<p>Длина - 2941 mm.</p>
+									<p>Глубина - 9 mm.</p>
+									<h5>Материалы</h5>
+									<p>- Силикон</p>
+									<p>- Пластик</p>
+									<p>- Кожа</p>
+									<button>Создать чехол</button>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="material">
+			<div>
+				<h2>Материалы для чехлов</h2>
+				<ul>
+					<li>
+						<img src="./pic/material1.png" width="244" height="244" alt="">
+						<div>
+							<p><strong>Силикон</strong> - самый распространенный тип кожи. Людям, обладающим такой кожей, несказанно повезло. Она встречается у молодых, здоровых людей и является настоящим богатством, щедро дарованным природой.</p>
+						</div>
+					</li>
+					<li>
+						<img src="./pic/material2.png" width="244" height="244" alt="">
+						<div>
+							<p><strong>Пластик</strong> - самый распространенный тип кожи. Людям, обладающим такой кожей, несказанно повезло. Она встречается у молодых, здоровых людей и является настоящим богатством, щедро дарованным природой.</p>
+						</div>
+					</li>
+					<li>
+						<img src="./pic/material3.png" width="244" height="244" alt="">
+						<div>
+							<p><strong>Кожа</strong> - самый распространенный тип кожи. Людям, обладающим такой кожей, несказанно повезло. Она встречается у молодых, здоровых людей и является настоящим богатством, щедро дарованным природой.</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="benefits">
+			<div>
+				<h2>Почему мы?</h2>
+				<div>
+					<ul>
+						<li>
+							<span>
+								<img src="./img/benefit1_icon.png" width="39" height="35" alt="">
+							</span>
+							<p>Нормальная кожа встречается намного чаще других типов кожи и обычно подразделяется на нормальную и комбинированную, или смешанную.</p>
+						<li>
+						<li>
+							<span>
+								<img src="./img/benefit2_icon.png" width="30" height="29" alt="">
+							</span>
+							<p>Нормальная кожа встречается намного чаще других типов кожи и обычно подразделяется на нормальную и комбинированную, или смешанную.</p>
+						<li>
+						<li>
+							<span>
+								<img src="./img/benefit3_icon.png" width="30" height="30" alt="">
+							</span>
+							<p>Нормальная кожа встречается намного чаще других типов кожи и обычно подразделяется на нормальную и комбинированную, или смешанную.</p>
+						<li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<div>
+				<div class="result">
+					<p>Я прочитал до конца, готов <a href="#">создать чехол!</a></p>
+					<img src="./img/result_icon.png" width="358" height="98" alt="">
+				</div>
+				<div class="contacts">
+					<div>
+						<h4>В Москве</h4>
+						<p>Точка находится по адресу Проспект Мира, 211, ТРЦ «Золотой Вавилон», второй торговый уровень, напротив Бургер Кинга.</p>
+					</div>
+					<div>
+						<h3>8 800 564 4654</h3>
+					</div>
+					<div>
+						<h5>E-mail: <a href="#">order@phoneartist.ru</a></h5>
+					</div>
+				</div>
+				<ul class="social">
+					<li><a href="#"><img src="./img/instagram_icon.png" width="38" height="74" alt=""></a></li>
+					<li><a href="#"><img src="./img/facebook_icon.png" width="38" height="74" alt=""></a></li>
+					<li><a href="#"><img src="./img/vkontakte_icon.png" width="38" height="74" alt=""></a></li>
+					<li><a href="#"><img src="./img/twitter_icon.png" width="38" height="74" alt=""></a></li>
+				</ul>
+				<p class="author">Разработано в <a href="http://letsrock.pro/" target="_blank">Let’s Rock</a></p>
+			</div>
+		</div>
+	</div>
+	<div class="fade"></div>
+	<div class="modal">
+		<div class="step1">
+			<h3>Создать чехол</h3>
+			<div>
+				<ul class="phone">
+					<li title="iphone4">
+						<span><img src="./img/iphone4_icon.png" width="23" height="38" alt=""></span>
+						<p>iPhone 4, 4s</p>
+					</li>
+					<li title="iphone5">
+						<span><img src="./img/iphone5_icon.png" width="23" height="40" alt=""></span>
+						<p>iPhone 5, 5s</p>
+					</li>
+					<li title="ipad">
+						<span><img src="./img/ipad_icon.png" width="34" height="43" alt=""></span>
+						<p>iPad 2, 3, 4</p>
+					</li>
+					<li title="ipadmini">
+						<span><img src="./img/ipadmini_icon.png" width="27" height="39" alt=""></span>
+						<p>iPad mini</p>
+					</li>
+					<li title="galaxy3">
+						<span><img src="./img/galaxy3_icon.png" width="21" height="40" alt=""></span>
+						<p>SGS 3</p>
+					</li>
+					<li title="galaxy4">
+						<span><img src="./img/galaxy4_icon.png" width="27" height="39" alt=""></span>
+						<p>SGS 4</p>
+					</li>
+					<li title="passport">
+						<span><img src="./img/passport_icon.png" width="34" height="24" alt=""></span>
+						<p>Паспорт</p>
+					</li>
+					<li title="galaxytab7">
+						<span><img src="./img/galaxytab7_icon.png" width="28" height="42" alt=""></span>
+						<p>Tab 7.0</p>
+					</li>
+					<li title="galaxytab10">
+						<span><img src="./img/galaxytab10_icon.png" width="29" height="44" alt=""></span>
+						<p>Tab 10.0</p>
+					</li>
+				</ul>
+				<div>
+					<ul class="material">
+						<li title="silicone">
+							<span><img src="./img/material1_icon.png" width="100" height="99" alt=""></span>
+							<p>Силикон</p>
+						</li>
+						<li title="plastic">
+							<span><img src="./img/material2_icon.png" width="100" height="99" alt=""></span>
+							<p>Пластик</p>
+						</li>
+						<li title="leather">
+							<span><img src="./img/material3_icon.png" width="100" height="99" alt=""></span>
+							<p>Кожа</p>
+						</li>
+					</ul>
+					<div>
+					</div>
+				</div>
+			</div>
+			<div class="next">
+				<button>Дальше ></button>
+			</div>
+		</div>
+		<div class="step2">
+			<h3>Загрузить картинку</h3>
+			<span class="prev"></span>
+			<div class="dropable">
+				<div class="tip">
+					<p>Перетащите файлы сюда</p>
+					<h6>или</h6>
+				</div>
+				<ul class="requirements">
+					<li>Формат изображений  jpeg, gif, png.</li>
+					<li>Разрешается добавлять не более 1 файла объемом не более 10 MБ.</li>
+					<li>Размер изображения должен быть не менее 1000x400 px.</li>
+				</ul>
+				<button id="button">Выберите файлы на компьютере</button>
+				<div class="image">
+					<div id="crop"></div>
+				</div>
+			</div>
+			<div class="next">
+				<button>Дальше ></button>
+			</div>
+		</div>
+		<div class="step3">
+			<h3>Оформить заказ</h3>
+			<span class="prev"></span>
+			<div>
+				<form action="#">
+					<p><span>Имя получателя</span> <input type="text" name="name"></p>
+					<p><span>Страна</span> <input type="text" name="country"></p>
+					<p><span>Город</span> <input type="text" name="city"></p>
+					<p><span>Эл. почта</span> <input type="text" name="email"></p>
+					<p>
+						<span>Доставка</span>
+						<select>
+							<option></option>
+							<option>Почтой</option>
+							<option>Курьером</option>
+						</select>
+					</p>
+					<p>
+						<span>Способ оплаты</span>
+						<select>
+							<option></option>
+							<option>Деньги</option>
+							<option>Деньги</option>
+						</select>
+					</p>
+					<p><span>Контактный номер телефона</span> <input type="text" name="phone"></p>
+					<p><span>Индекс получателя</span> <input type="text" name="postcode"></p>
+					<p><span>Адрес получателя</span> <input type="text" name="address"></p>
+				</form>
+			</div>
+			<div class="next">
+				<button>Дальше ></button>
+			</div>
+		</div>
+		<div class="step4">
+			<div>
+				<h3>Спасибо за заказ!</h3>
+				<p>Наш менеджер скоро свяжется с Вами.</p>
+			</div>
+		</div>
+	</div>
+	<button class="home"></button>
+</body>
+</html>
