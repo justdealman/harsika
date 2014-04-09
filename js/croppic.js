@@ -178,7 +178,7 @@
 						that.imgInitW = that.imgW = response.width;
 						that.imgInitH = that.imgH = response.height;
 						
-						if ( that.imgW > 1000 && that.imgH > 400 ) {
+						if ( that.imgW > 999 && that.imgH > 399 && that.imgW < 3841 && that.imgH < 2161) {
 						
 							$('.step2 > div p.mistake').remove();
 							
@@ -217,9 +217,21 @@
 						}
 						
 						else {
-							$('.step2 > div p.mistake').remove();
-							$('.step2 > div').append('<p class="mistake">Недостаточный размер файла, необходимо загрузить картинку размером не менее 1000x400 px.</p>');
-							that.hideLoader();
+						
+						
+							if ( that.imgW < 1000 || that.imgH < 400 ) {
+								$('.step2 > div p.mistake').remove();
+								$('.step2 > div').append('<p class="mistake">Недостаточный размер файла, необходимо загрузить картинку размером не менее 1000x400 px.</p>');
+								that.hideLoader();
+							
+							}
+						
+							if ( that.imgW > 3840 || that.imgH > 2160 ) {
+								$('.step2 > div p.mistake').remove();
+								$('.step2 > div').append('<p class="mistake">Слишком большое изображение, необходимо загрузить картинку размером не более 3841x2161 px.</p>');
+								that.hideLoader();
+							
+							}
 						}
 						
 					}
@@ -266,7 +278,7 @@
 						that.imgInitW = that.imgW = response.width;
 						that.imgInitH = that.imgH = response.height;
 						
-						if ( that.imgW > 1000 && that.imgH > 400 ) {
+						if ( that.imgW > 999 && that.imgH > 399 && that.imgW < 3841 && that.imgH < 2161) {
 						
 							$('.step2 > div p.mistake').remove();
 					
@@ -302,9 +314,21 @@
 						}	
 						
 						else {
-							$('.step2 > div p.mistake').remove();
-							$('.step2 > div').append('<p class="mistake">Недостаточный размер файла, необходимо загрузить картинку размером не менее 1000x400 px.</p>');
-							that.hideLoader();
+						
+							if ( that.imgW < 1000 || that.imgH < 400 ) {
+								$('.step2 > div p.mistake').remove();
+								$('.step2 > div').append('<p class="mistake">Недостаточный размер файла, необходимо загрузить картинку размером не менее 1000x400 px.</p>');
+								that.hideLoader();
+							
+							}
+						
+							if ( that.imgW > 3840 || that.imgH > 2160 ) {
+								$('.step2 > div p.mistake').remove();
+								$('.step2 > div').append('<p class="mistake">Слишком большое изображение, необходимо загрузить картинку размером не более 3841x2161 px.</p>');
+								that.hideLoader();
+							
+							}
+							
 						}
 							
 						

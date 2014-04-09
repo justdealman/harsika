@@ -2,6 +2,7 @@
 /*
 *	!!! THIS IS JUST AN EXAMPLE !!!, PLEASE USE ImageMagick or some other quality image processing libraries
 */
+
     $imagePath = "temp/";
 
 	$allowedExts = array("gif", "jpeg", "jpg", "png", "GIF", "JPEG", "JPG", "PNG");
@@ -16,7 +17,7 @@
 				"status" => 'error',
 				"message" => 'ERROR Return Code: '. $_FILES["img"]["error"],
 			);
-			echo "Return Code: " . $_FILES["img"]["error"] . "<br>";
+			echo "";
 		}
 	  else
 		{
