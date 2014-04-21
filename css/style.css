@@ -314,9 +314,8 @@ button::-moz-focus-inner {
 }
 .material > div {
 	width:960px;
-	height:650px;
 	text-align:center;
-	padding:36px 0 0;
+	padding:36px 0 65px;
 	margin:0 auto;
 	background:url('../img/material_div.png') no-repeat 146px top;
 }
@@ -353,21 +352,27 @@ button::-moz-focus-inner {
 }
 .material ul li > div {
 	text-align:left;
-	padding:40px 30px 37px;
-	background:url('../img/material_ul_div.png') no-repeat left top;
+	padding:50px 0 0;
+	background:url('../img/material_ul_div_t.png') no-repeat left top;
+}
+.material ul li > div > div {
+	padding:0 0 37px;
+	background:url('../img/material_ul_div_b.png') no-repeat left bottom;
+}
+.material ul li > div > div > div {
+	padding:1px 30px;
+	background:url('../img/material_ul_div_bg.png') repeat-y left;
 }
 .material ul li p {
-	overflow:hidden;
-	height:176px;
 	color:#ffffff;
 	font-size:16px;
 	line-height:22px;
-	margin:0;
+	margin:-8px 0 -4px;
 }
 .benefits {
 	position:relative;
 	z-index:10;
-	height:476px;
+	height:547px;
 	background:url('../img/benefits_bg.png') repeat;
 }
 .benefits > div {
@@ -391,7 +396,7 @@ button::-moz-focus-inner {
 	content:"";
 	position:absolute;
 	top:21px;
-	width:278px;
+	width:180px;
 	height:1px;
 	background:#0c0525;
 }
@@ -403,34 +408,33 @@ button::-moz-focus-inner {
 }
 .benefits > div > div {
 	width:820px;
-	height:418px;
+	height:489px;
 	margin:0 auto;
 	background:url('../img/benefits_div_div.png') no-repeat left top;
 }
 .benefits > div > div ul {
-	padding:71px 120px 0 190px;
+	padding:78px 80px 0 170px;
 	margin:0;
 }
 .benefits > div > div ul li {
 	position:relative;
-	margin:43px 0 0;
+	margin:28px 0 0;
 }
 .benefits > div > div ul li span {
 	position:absolute;
-	left:-72px;
-	top:1px;
+	left:-90px;
+	top:-4px;
 	display:block;
-	width:40px;
-	height:40px;
+	width:50px;
+	height:50px;
 }
 .benefits > div > div ul li span img {
 	position:absolute;
 	top:0;
-	right:0;
 	bottom:0;
 	left:0;
-	max-width:40px;
-	max-height:40px;
+	max-width:50px;
+	max-height:50px;
 	margin:auto;
 }
 .benefits > div > div ul li:first-child {
@@ -438,7 +442,7 @@ button::-moz-focus-inner {
 }
 .benefits > div > div ul li p {
 	color:#ffffff;
-	font-size:18px;
+	font-size:16px;
 	line-height:22px;
 	margin:0;
 }
