@@ -162,6 +162,7 @@ $(document).ready(function() {
 	
 	var phone = 0;
 	var material = 0;
+	var color = 0;
 	var price = 0;
 
 	$('.modal .step1 ul.phone li').bind('click', function() {
@@ -170,7 +171,7 @@ $(document).ready(function() {
 		phone = $(this).attr('title');
 		price = phone+material;
 		if ( phone != 0 && material !=0 ) {
-			$(this).parents('.step1').find('ul.material').next().empty().html('<p><span>Сумма заказа</span> '+price+'<em>p</em></p>');
+			$(this).parents('.step1').find('div.price').empty().html('<p><span>Сумма заказа</span> '+price+'<em>p</em></p>');
 		}
 	}).filter(':first').click();
 
@@ -180,8 +181,14 @@ $(document).ready(function() {
 		material = $(this).attr('title');
 		price = phone+material;
 		if ( phone != 0 && material !=0 ) {
-			$(this).parents('.step1').find('ul.material').next().empty().html('<p><span>Сумма заказа</span> '+price+'<em>p</em></p>');
+			$(this).parents('.step1').find('div.price').empty().html('<p><span>Сумма заказа</span> '+price+'<em>p</em></p>');
 		}
+	}).filter(':first').click();
+
+	$('.modal .step1 div.color ul li').bind('click', function() {
+		$(this).siblings().removeClass('active');
+		$(this).addClass('active');
+		color = $(this).attr('title');
 	}).filter(':first').click();
 	
 	var phonelink;
