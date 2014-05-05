@@ -205,8 +205,8 @@ $(document).ready(function() {
 			$('.modal .image img.cover').load(function() {
 				var cropwidth = $(this).width(); 
 				var cropheight = $(this).height();
-				$('#crop').css({'width': cropwidth+'px', 'height': cropheight+'px'});
-				$('.image img.cover').css({'margin-left': -cropwidth/2+'px', 'visibility': 'visible'});
+				$('#crop').css({'width': cropwidth+'px', 'height': cropheight+'px', 'margin-top': Math.floor(400-cropheight)/2+'px'});
+				$('.image img.cover').css({'margin-left': -cropwidth/2+'px', 'visibility': 'visible', 'margin-top': Math.floor(400-cropheight)/2+'px'});
 			});
 		}
 		else {
