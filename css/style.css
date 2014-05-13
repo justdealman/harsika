@@ -1224,7 +1224,7 @@ button::-moz-focus-inner {
 	height:516px;
 }
 .modal .step3 form {
-	margin:49px 70px 0 70px;
+	margin:12px 70px 0 70px;
 }
 .modal .step3 form p {
 	color:#0c0525;
@@ -1265,6 +1265,35 @@ button::-moz-focus-inner {
 	color:#ffffff;
 	background:#c63f3f;
 	border:3px solid #c63f3f;
+}
+.modal .step3 .total {
+	clear:both;
+	overflow:hidden;
+	display:inline-block;
+	color:#0c0525;
+	font-size:16px;
+	line-height:20px;
+	font-weight:normal;
+	padding:20px 0 0;
+	margin:21px 0 0 60px;
+	border-top:2px solid #0c0525;
+}
+.modal .step3 .total span {
+	float:left;
+	display:block;
+	margin:0 0 0 54px;
+}
+.modal .step3 .total span:first-child {
+	margin-left:0;
+}
+.modal .step3 .total strong {
+	font-size:18px;
+}
+.modal .step3 .total strong em {
+	font-size:19px;
+	font-style:normal;
+	font-family:'Rouble', sans-serif;
+	padding:0 0 0 2px;
 }
 .modal.thanks {
 	width:420px;
