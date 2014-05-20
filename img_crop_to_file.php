@@ -12,6 +12,7 @@ $imgY1 = $_POST['imgY1'];
 $imgX1 = $_POST['imgX1'];
 $cropW = $_POST['cropW'];
 $cropH = $_POST['cropH'];
+$angle = $_POST['angle'];
 
 $jpeg_quality = 100;
 
@@ -46,9 +47,15 @@ switch(strtolower($what['mime']))
 	$dest_image = imagecreatetruecolor($cropW, $cropH);
 	imagecopyresampled($dest_image, $resizedImage, 0, 0, $imgX1, $imgY1, $cropW, 
 				$cropH, $cropW, $cropH);	
+				
+	$rotatedImage = imagerotate($dest_image, $angle, 0);
+				
+	/*$rotatedImage = imagerotate($angle);
+	imagecopyresampled($rotatedImage, $dest_image, 0, 0, $imgX1, $imgY1, $cropW, 
+				$cropH, $cropW, $cropH, $angle);	*/
 
 
-	imagejpeg($dest_image, $output_filename.$type, $jpeg_quality);
+	imagejpeg($rotatedImage, $output_filename.$type, $jpeg_quality);
 	
 	$response = array(
 			"status" => 'success',

@@ -1442,9 +1442,9 @@ button::-moz-focus-inner {
 	position:absolute;
 	left:50%;
 	bottom:15px;
-	width:74px;
+	width:162px;
 	height:29px;
-	margin:0 0 0 -37px;
+	margin:0 0 0 -81px;
 }
 .cropControls i {
 	float:left;
@@ -1456,6 +1456,7 @@ button::-moz-focus-inner {
 	display:none;
 }
 .cropControls i.cropControlZoomIn {
+	margin-right:14px;
 	background:url('../img/crop_plus.png') no-repeat left top;
 }
 .cropControls i.cropControlZoomOut {
@@ -1466,7 +1467,7 @@ button::-moz-focus-inner {
 	display:none;
 }
 .cropControls i.cropControlCrop {
-	display:red;
+	display:none;
 }
 .cropControls i.cropControlUpload {
 	display:none;
@@ -1477,9 +1478,16 @@ button::-moz-focus-inner {
 .cropControls i.cropControlRemoveCroppedImage {
 	display:none;
 }
-.cropControls i:hover {
+.cropControls i.cropControlCounterclockwise {
+	margin-right:14px;
+	background:url('../img/crop_counterclockwise.png') no-repeat left top;
+}
+.cropControls i.cropControlClockwise {
+	background:url('../img/crop_clockwise.png') no-repeat left top;
+}
+/*.cropControls i:hover {
 	background-position:0 -29px;
-}		
+}*/		
 .cropControls i:last-child{
 	margin-right:none;
 }

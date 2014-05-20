@@ -49,6 +49,7 @@
 	var multiply = 1;
 	var origratio = 1;
 	var preview = 1;
+	var angle = 0;
 
 	Croppic.prototype = {
 		id:'',
@@ -77,6 +78,7 @@
 		cropControlCrop:{},
 		cropControlReset:{},	
 		cropControlRemoveCroppedImage:{},	
+		cropControlClockwise:{},	
 		modal:{},
 		loader:{},
 		
@@ -410,11 +412,13 @@
 			var cropControlZoomMuchOut =     '<i class="cropControlZoomMuchOut"></i>';
 			var cropControlCrop =            '<i class="cropControlCrop"></i>';
 			var cropControlReset =           '<i class="cropControlReset"></i>';
+			var cropControlClockwise =       '<i class="cropControlClockwise"></i>';
+			var cropControlCounterclockwise =       '<i class="cropControlCounterclockwise"></i>';
 			
             var html;
             
-			if(that.options.doubleZoomControls){ html =  '<div class="cropControls cropControlsCrop">'+ cropControlZoomMuchIn + cropControlZoomOut + cropControlZoomIn + cropControlZoomMuchOut + cropControlCrop + cropControlReset + '</div>'; }
-			else{ html =  '<div class="cropControls cropControlsCrop">' + cropControlZoomOut + cropControlZoomIn + cropControlCrop + cropControlReset + '</div>'; }	
+			if(that.options.doubleZoomControls){ html =  '<div class="cropControls cropControlsCrop">'+ cropControlZoomMuchIn + cropControlZoomOut + cropControlZoomIn + cropControlZoomMuchOut + cropControlCrop + cropControlReset + cropControlCounterclockwise + cropControlClockwise + '</div>'; }
+			else{ html =  '<div class="cropControls cropControlsCrop">' + cropControlZoomOut + cropControlZoomIn + cropControlCrop + cropControlReset + cropControlCounterclockwise + cropControlClockwise + '</div>'; }	
 			
 			that.obj.append(html);
 			
@@ -439,7 +443,13 @@
 			that.cropControlCrop.on('click',function(){ that.crop(); });
 
 			that.cropControlReset = that.cropControlsCrop.find('.cropControlReset');
-			that.cropControlReset.on('click',function(){ that.reset(); });				
+			that.cropControlReset.on('click',function(){ that.reset(); });	
+
+			that.cropControlClockwise = that.cropControlsCrop.find('.cropControlCounterclockwise');
+			that.cropControlClockwise.on('click',function(){ that.rotate(-1); });		
+
+			that.cropControlClockwise = that.cropControlsCrop.find('.cropControlClockwise');
+			that.cropControlClockwise.on('click',function(){ that.rotate(1); });				
 			
 		},
 		initDrag:function(){
@@ -488,6 +498,198 @@
 		},
 		zoom :function(x){
 			var that = this;
+			var ratio = that.imgW / that.imgH;
+			var newWidth = that.imgW+x;
+			var newHeight = newWidth/ratio;
+			var doPositioning = true;
+			
+			var left;
+			var top;
+			
+			if( newWidth < that.objW || newHeight < that.objH){
+
+				if( newWidth - that.objW < newHeight - that.objH ){ 
+					newWidth = that.objW;
+					newHeight = newWidth/ratio;
+				}else{
+					newHeight = that.objH;
+					newWidth = ratio * newHeight;
+				}
+			
+				doPositioning = false;
+
+			} 
+			
+			if( newWidth > that.imgInitW || newHeight > that.imgInitH){
+				
+				if( newWidth - that.imgInitW < newHeight - that.imgInitH ){ 
+					newWidth = newWidth-x;
+					newHeight = newWidth/ratio;
+				}else{
+					newHeight = that.imgInitH;
+					newWidth = ratio * newHeight;
+				}
+				
+				doPositioning = false;
+				
+			}
+			
+			//console.log(that.objW+', '+newWidth);
+			//console.log(that.objH+', '+newHeight);
+
+			
+			that.imgW = newWidth;
+			that.img.width(newWidth); 
+				
+			that.imgH = newHeight;
+			that.img.height(newHeight); 
+			
+	
+			var newTop = parseInt( that.img.css('top') ) - x/2;
+			var newLeft = parseInt( that.img.css('left') ) - x/2;
+
+			
+			if( newTop>0 ){ newTop=0;}
+			if( newLeft>0 ){ newLeft=0;}
+			
+			var maxTop = -( newHeight-that.objH); if( newTop < maxTop){	newTop = maxTop;	}
+			var maxLeft = -( newWidth-that.objW); if( newLeft < maxLeft){	newLeft = maxLeft;	}
+			
+			if( doPositioning ){
+				that.img.css({'top':newTop, 'left':newLeft}); 
+			}
+			
+			if(that.options.imgEyecandy){
+
+				if ( angle == 90 || angle == 270 || angle == -90 || angle == -270 ) {
+					left = (that.imgH-that.imgW)/2;
+					top = (that.imgH-that.imgW)/2;
+				}
+				else {
+					left = 0;
+					top = 0;
+				}
+			
+				if ( angle == 90 || angle == 270 || angle == -90 || angle == -270 ) {
+					that.imgEyecandy.width(newHeight);
+					that.imgEyecandy.height(newWidth);
+					that.imgEyecandy.css({'margin-left': -left+'px', 'margin-top': top+'px'});
+				}
+				else {
+					that.imgEyecandy.width(newWidth);
+					that.imgEyecandy.height(newHeight);
+					that.imgEyecandy.css({'margin-left': -left+'px', 'margin-top': top+'px'});
+				}
+			
+			
+				if( doPositioning ){
+					that.imgEyecandy.css({'top':newTop, 'left':newLeft}); 
+				}
+			}
+
+			
+			if (that.options.onImgZoom) that.options.onImgZoom.call(that);
+
+		},
+		rotate:function(x){
+			var that = this;
+
+			angle = eval(angle)+(90*x);
+			
+			if ( angle == 360 || angle == -360 ) {
+				angle = 0;
+			}
+			
+			var ratio = that.imgW / that.imgH;
+			var newWidth;
+			var newHeight;
+			var left;
+			var top;
+			
+			newWidth = that.imgH;
+			newHeight = that.imgW;
+			
+			newRatio = 1;
+			
+			
+			if( newWidth < that.objW || newHeight < that.objH){
+
+				if( newWidth - that.objW < newHeight - that.objH ){ 
+					newWidth = that.objW;
+					newHeight = newWidth * ratio;
+				}else{
+					newHeight = that.objH;
+					newWidth = newHeight / ratio;
+				}
+			
+				doPositioning = false;
+
+			} 
+			
+
+			
+			
+			/*if ( newWidth < that.objW ) {
+				newWidth = that.objW;
+				newHeight = newWidth*(that.imgH/that.imgW)
+			}
+			
+			if ( newHeight < that.objH ) {
+				newHeight= that.objH;
+				newWidth = newHeight/(that.imgH/that.imgW);
+				top = 0;
+				left = 0;
+			}*/
+				
+			that.imgW = newWidth;
+			that.img.width(newWidth); 
+			
+			that.imgH = newHeight;
+			that.img.height(newHeight); 
+			
+			if ( angle == 90 || angle == 270 || angle == -90 || angle == -270 ) {
+				left = (that.imgH-that.imgW)/2;
+				top = (that.imgH-that.imgW)/2;
+			}
+			else {
+				left = 0;
+				top = 0;
+			}
+			
+			var doPositioning = true;
+			
+			//console.log(newHeight+', '+newWidth);
+
+			that.img.css({
+				'left': - ( newWidth - $('#crop').width() )/ 2 +'px',
+				'top': - ( newHeight - $('#crop').height() )/ 2 +'px',
+			});
+			
+			if ( angle == 90 || angle == 270 || angle == -90 || angle == -270 ) {
+				$('#crop > img').css({
+					'transform': 'rotate('+eval(angle)+'deg)',
+					'width': newHeight+'px',
+					'height': newWidth+'px',
+					'left': - ( newWidth - $('#crop').width() )/ 2 +'px',
+					'top': - ( newHeight - $('#crop').height() )/ 2 +'px',
+					'margin-left': -left+'px',
+					'margin-top': top+'px'
+				});
+			}
+			else {
+				$('#crop > img').css({
+					'transform': 'rotate('+eval(angle)+'deg)',
+					'width': newWidth+'px',
+					'height': newHeight+'px',
+					'left': - ( newWidth - $('#crop').width() )/ 2 +'px',
+					'top': - ( newHeight - $('#crop').height() )/ 2 +'px',
+					'margin-left': -left+'px',
+					'margin-top': top+'px'
+				});
+			}
+
+			
+			/*var that = this;
 			var ratio = that.imgW / that.imgH;
 			var newWidth = that.imgW+x;
 			var newHeight = newWidth/ratio;
@@ -548,7 +750,7 @@
 				}
 			}	
 			
-			if (that.options.onImgZoom) that.options.onImgZoom.call(that);
+			if (that.options.onImgZoom) that.options.onImgZoom.call(that);*/
 
 		},
 		crop:function(){
@@ -561,16 +763,63 @@
 			
 			origratio = that.imgInitW/that.imgW;
 			
-			var cropData = {
-				imgUrl:that.imgUrl,
-				imgInitW:that.imgInitW,
-				imgInitH:that.imgInitH,
-				imgW:that.imgW/multiply*origratio,
-				imgH:that.imgH/multiply*origratio,
-				imgY1:Math.abs( parseInt( that.img.css('top') ) )*origratio,
-				imgX1:Math.abs( parseInt( that.img.css('left') ) )*origratio,
-				cropH:that.objH*origratio,
-				cropW:that.objW*origratio
+			if ( angle == 0 ) {
+				var cropData = {
+					imgUrl:that.imgUrl,
+					imgInitW:that.imgInitW,
+					imgInitH:that.imgInitH,
+					imgW:that.imgW/multiply*origratio,
+					imgH:that.imgH/multiply*origratio,
+					imgY1:Math.abs( parseInt( that.img.css('top') ) )*origratio,
+					imgX1:Math.abs( parseInt( that.img.css('left') ) )*origratio,
+					cropH:that.objH*origratio,
+					cropW:that.objW*origratio,
+					angle:-angle
+				}
+			}
+			if ( angle == 180 || angle == -180 ) {
+				var cropData = {
+					imgUrl:that.imgUrl,
+					imgInitW:that.imgInitW,
+					imgInitH:that.imgInitH,
+					imgW:that.imgW/multiply*origratio,
+					imgH:that.imgH/multiply*origratio,
+					imgY1:Math.abs( (that.imgH - that.objH) + parseInt( that.img.css('top') ) )*origratio,
+					imgX1:Math.abs( (that.imgW - that.objW) + parseInt( that.img.css('left') ) )*origratio,
+					cropH:that.objH*origratio,
+					cropW:that.objW*origratio,
+					angle:-angle
+				}
+			}
+			if ( angle == 90 || angle == -270 ) {
+				var cropData = {
+					imgUrl:that.imgUrl,
+					imgInitW:that.imgInitW,
+					imgInitH:that.imgInitH,
+					imgW:that.imgH/multiply*origratio,
+					imgH:that.imgW/multiply*origratio,
+					imgX1:Math.abs( parseInt( that.img.css('top') ) * parseInt(that.imgH / that.imgW) )*origratio,
+					imgY1:Math.abs( parseInt( that.img.css('left') ) + parseInt(that.imgW - that.objW) )*origratio,
+					cropH:that.objW*origratio,
+					cropW:that.objH*origratio,
+					angle:-angle
+				}
+			}
+			
+			
+			if ( angle == -90 || angle == 270 ) {
+				var cropData = {
+					imgUrl:that.imgUrl,
+					imgInitW:that.imgInitW,
+					imgInitH:that.imgInitH,
+					imgW:that.imgH/multiply*origratio,
+					imgH:that.imgW/multiply*origratio,
+					imgX1:Math.abs( parseInt( that.img.css('top') ) + parseInt(that.imgH - that.objH) )*origratio,
+					imgY1:Math.abs( parseInt( that.img.css('left') ) * parseInt(that.imgH / that.imgW) )*origratio,
+					cropH:that.objW*origratio,
+					cropW:that.objH*origratio,
+					angle:-angle
+				}
 			}
 			
 			preview = that.objW;
@@ -639,7 +888,7 @@
 		reset:function(){
 			var that = this;
 			that.destroy();
-			
+			angle = 0;
 			that.init();
 			
 			if( !$.isEmptyObject(that.croppedImg)){ 

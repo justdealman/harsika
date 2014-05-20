@@ -203,6 +203,8 @@ $(document).ready(function() {
 			phonelink = './covers/'+phone+'_'+material+'_cover.png';
 			$(this).parents('.modal').find('.step2 .next').prev().find('.image').append('<img src="'+phonelink+'" class="cover" alt="" style="visibility:hidden">');
 			$('.modal .image img.cover').load(function() {
+				croppic.destroy();
+				croppic = new Croppic('crop', cropOptions);
 				var cropwidth = $(this).width(); 
 				var cropheight = $(this).height();
 				$('#crop').css({'width': cropwidth+'px', 'height': cropheight+'px', 'margin-top': Math.floor(400-cropheight)/2+'px'});
@@ -239,6 +241,7 @@ $(document).ready(function() {
 			$('.fade').removeClass('animate').addClass('animate');
 			$('.fade').delay(1000).queue(function(next) { $(this).css({'background': 'rgba(163,42,99,0.75)'}); next(); });
 			console.log('урл нарезанной картинки '+cropImageUrl);
+			croppic.reset();
 		},
 		imgEyecandyOpacity:0
 	}
@@ -276,6 +279,7 @@ $(document).ready(function() {
 		$('.fade').removeClass('animate').addClass('animate');
 		$('.fade').css({'background': 'rgba(128,196,255,0.75)'});
 		$('.modal').find('.step2').parent().css({'background': '#ffffff'});
+		$('.croppedImg').remove();
 		return false;
 	});
 
