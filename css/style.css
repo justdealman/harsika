@@ -162,18 +162,26 @@ button::-moz-focus-inner {
 .header .phone {
 	position:absolute;
 	right:0;
-	top:13px;
+	top:19px;
 	text-align:right;
-	padding:0 0 0 29px;
+	padding:0 0 0 26px;
 	background:url('../img/header_phone_icon.png') no-repeat left 5px;
 }
 .header .phone h3 {
 	color:#ffffff;
-	font-size:24px;
-	line-height:27px;
+	font-size:17px;
+	line-height:24px;
+	font-weight:normal;
     font-family:'Azbuka', sans-serif;
 	padding:0;
-	margin:0 0 1px;
+	margin:0 0 -1px;
+}
+.header .phone h3 span {
+	padding:0 0 0 5px;
+}
+.header .phone h3 span:first-child {
+	color:#80c4ff;
+	padding-left:0;
 }
 .header .phone p {
 	color:#ffffff;
