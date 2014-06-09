@@ -284,13 +284,30 @@ $(document).ready(function() {
 	});
 
 	$('.modal .step3 .next button').bind('click', function() {
-		$(this).parents('.modal').addClass('thanks');
+		$(this).parents('.modal').addClass('bg');
 		$(this).parents('.modal').find('.step3').hide();
-		$(this).parents('.modal').find('.step4').show();
+		$(this).parents('.modal').find('.step35').show();
 		$(this).parents('.step3').find('input').removeClass('error success');
 		$(this).parents('.step3').find('input').val('');
 		return false;
 	});
+
+	$('.modal .step35 .prev').click(function() {
+		$(this).parent().hide();
+		$(this).parent().siblings('.step3').show();
+		$('.modal').find('.step3').parent().css({'background': '#ffffff'});
+		return false;
+	});
+
+	$('.modal .step35 .next button').bind('click', function() {
+		$(this).parents('.modal').removeClass('bg');
+		$(this).parents('.modal').addClass('thanks');
+		$(this).parents('.modal').find('.step35').hide();
+		return false;
+	});
+	
+	
+	
 	$('.scroll ul li > div .description').append('<span></span>');
 	$('.scroll ul li > div').hover(
 		function() {

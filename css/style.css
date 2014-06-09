@@ -1366,6 +1366,85 @@ button::-moz-focus-inner {
 	-moz-box-shadow:inset 0 0 40px rgba(255,255,255,0.4), 2px 2px 0 rgba(153,153,153,0.2);
 	box-shadow:inset 0 0 40px rgba(255,255,255,0.4), 2px 2px 0 rgba(153,153,153,0.2);
 }
+.modal .step35 {
+	position:relative;
+	display:none;
+}
+.modal.bg {
+	background:url('../img/step35_bg.png') repeat;
+}
+.modal .step35 .prev {
+	position:absolute;
+	left:0;
+	top:7px;
+	display:block;
+	width:30px;
+	height:29px;
+	cursor:pointer;
+	background:url('../img/step3_prev.png') no-repeat left top;
+}
+.modal .step35 > div {
+	position:relative;
+	clear:both;
+	overflow:hidden;
+	height:516px;
+}
+.modal .step35 > div > div {
+	position:relative;
+	width:629px;
+	padding:20px 21px 27px;
+	margin:0 0 0 49px;
+	background:#ffffff;
+	border:1px solid #e7e7e7;
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	border-radius:5px;
+	behavior:url('./pie.htc');
+}
+.modal .step35 > div > div p {
+	color:#0c0525;
+	font-size:16px;
+	line-height:20px;
+	font-style:italic;
+	padding:0 0 0 230px;
+	margin:0 0 16px;
+}
+.modal .step35 > div > div p span {
+	display:inline-block;
+	width:220px;
+	font-style:normal;
+	margin:0 7px 0 -230px;
+}
+.modal .step35 > div > div h5 {
+	position:relative;
+	color:#0c0525;
+	font-size:16px;
+	line-height:20px;
+	font-weight:normal;
+	padding:0;
+	margin:82px 0 0;
+}
+.modal .step35 > div > div h5:before {
+	content:'';
+	position:absolute;
+	left:0;
+	top:-23px;
+	width:431px;
+	height:2px;
+	background:#0c0525;
+}
+.modal .step35 > div > div h5 span {
+	display:inline-block;
+	width:220px;
+	vertical-align:top;
+	margin:0 7px 0 0;
+}
+.modal .step35 > div > div h5 span em {
+	font-size:17px;
+	font-style:normal;
+	font-family:'Rouble', sans-serif;
+	padding:0 0 0 3px;
+}
 
 /* Crop */
 
